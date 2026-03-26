@@ -1,0 +1,27 @@
+---
+description: Cursor 同梱スキル（Settings の Skills）と自作スキルの読み分け。create-rule / skill-creator / create-subagent 等のパスを明示する。
+alwaysApply: true
+---
+
+# Cursor 同梱スキル（Settings → Rules → Skills / SubAgents）
+
+同梱スキルは **`$HOME/.cursor/skills-cursor/<名前>/SKILL.md`** にある。チャットの一覧に出ない場合でも、**該当タスクではこのパスのファイルを Read してから**進める（SubAgents の作り方は `create-subagent`）。
+
+| 用途 | 読むファイル |
+|------|----------------|
+| `.cursor/rules` の `.mdc` 作成・整理 | `$HOME/.cursor/skills-cursor/create-rule/SKILL.md` |
+| 新規スキルの書き方・置き場所 | `$HOME/.cursor/skills-cursor/create-skill/SKILL.md` |
+| スキルの eval・benchmark・説明文の反復改善 | `$HOME/.cursor/skills-cursor/skill-creator/SKILL.md` |
+| ルール／スラッシュコマンドを skills 形式へ移行 | `$HOME/.cursor/skills-cursor/migrate-to-skills/SKILL.md` |
+| サブエージェント（`~/.cursor/agents` 等） | `$HOME/.cursor/skills-cursor/create-subagent/SKILL.md` |
+| Cursor / VS Code の `settings.json` | `$HOME/.cursor/skills-cursor/update-cursor-settings/SKILL.md` |
+| シェル専門の委譲 | `$HOME/.cursor/skills-cursor/shell/SKILL.md` |
+
+## 自作スキル（開発ドメイン）
+
+- **UI / Next フロント / Next バックエンド**: `workflow-progress` に従い、`.cursor/skills/` または `$HOME/.cursor/skills/` の `design-ui` / `frontend-nextjs` / `backend-next` を読む。
+- **ルールとスキルの整理・重複削減だけ**が目的なら `personal-dev-efficiency`（中身は上表への誘導が中心）。**新規ルールの書き方**は **create-rule**、**新規スキルの型**は **create-skill** を優先して Read する。
+
+## プロジェクトへの反映
+
+- 自作スキルと `.mdc` をリポに揃える: ターミナルで **`setup-cursor`**（`$HOME/.cursor/scripts/setup-cursor.sh`）。

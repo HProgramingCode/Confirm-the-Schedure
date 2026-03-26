@@ -1,0 +1,15 @@
+---
+description: 既定スタックの要約（Next.js 系）。別スタックのリポでは README を正とする
+alwaysApply: true
+---
+
+# スタック（要約）
+
+**注意**: 以下は **Next.js を主に使うリポジトリ向けのメモ**である。Go 専用・モバイルのみなど**別スタックのプロジェクトでは、このルールの技術名は無視し、そのリポの README / `docs/stack.md` を正とする。**
+
+- **Next.js**（App Router 前提。別構成なら既存に合わせる）
+- **DB**: Turso（本番）／SQLite（ローカル）
+- **認証**: NextAuth
+- **クライアント状態**: Zustand
+
+詳細・Go を検討する場面は、そのプロジェクトの `docs/stack.md` とフロント／バック用 globs ルールを参照。

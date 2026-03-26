@@ -1,0 +1,13 @@
+---
+description: >-
+  要件定義・仕様整理・技術選定・アーキテクチャ判断の洗練と再編成。不足は質問で埋め、完了後に読みやすく直す。
+  ユーザーが要件、仕様、技術選定、非機能、スコープ、プロダクト定義、要件定義書、たたき台、整理、洗練と言ったときに適用する。
+alwaysApply: false
+---
+
+# 要件・技術の整理
+
+- **この種の依頼では**、まず **`requirements-tech-spec` スキル**（`$HOME/.cursor/skills/requirements-tech-spec/SKILL.md`、プロジェクトに写していれば `.cursor/skills/requirements-tech-spec/SKILL.md`）を **Read してから**進める。
+- **成果物**は原則 **`docs/` 配下の1 Markdown**（例: `requirements-and-tech.md`）。既存のドキュメント方針があればそれに合わせる。
+- **不足情報は質問**で埋め、ユーザーが区切りをつけたら **洗練パス**で見出し・重複・用語を整える。
+- **推測で仕様を足さない**。未確定は明示する。

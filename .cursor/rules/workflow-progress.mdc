@@ -1,0 +1,45 @@
+---
+description: タスク可視化（Todo + docs/tasks.md）、開発日記、ジュニア向けメモ、ドメインスキルの参照（開発セッション全体・全プロジェクト共通）
+alwaysApply: true
+---
+
+# 進捗の見える化
+
+## ドキュメントの場所（ワークスペース＝プロジェクトルート）
+
+- `docs/` が無く、タスク・日記・メモが必要なら**作成してよい**。
+- `docs/tasks.md` / `docs/dev-diary.md` / `docs/notes/` / `docs/templates/junior-note.md` が無い場合は、既存リポのテンプレに合わせて**最小限のひな形を新規作成**してよい。ジュニア向けひな形のコピー元: プロジェクトに無ければ `~/.cursor/templates/junior-note.md`（Windows: `%USERPROFILE%\.cursor\templates\junior-note.md`）。
+
+## セッションの始め（エージェントが開発作業に着手するとき）
+
+- **`docs/tasks.md`** と **`docs/dev-diary.md` の `## 記録一覧` 直下**を読み（無ければ上記で用意）、WIP・次の一手・直近の文脈を把握してから実装に入る。
+- 作業種別に応じて **SKILL.md** を読む。次の順で**最初に存在するパス**を使う。
+  1. ワークスペース内 `.cursor/skills/<名前>/SKILL.md`
+  2. `~/.cursor/skills/<名前>/SKILL.md`（Windows: `%USERPROFILE%\.cursor\skills\...`）
+- 名前と用途の対応:
+  - 要件定義・仕様・技術選定の整理・洗練: `requirements-tech-spec`
+  - UI・見た目・アクセシビリティ: `design-ui`
+  - Next 画面・クライアント境界・Zustand: `frontend-nextjs`
+  - Route Handler・lib の DB・NextAuth・サーバー処理: `backend-next`
+- 複数領域にまたがる場合は、関係するスキルを順に読む。
+- **Cursor 同梱**の create-rule / create-skill / skill-creator / create-subagent 等は **`cursor-builtin-skills` ルール**の表のパスを Read してから使う（Settings の Skills と同じセット）。
+
+## タスク（常時）
+
+- **2 ステップ以上**の作業では Todo を使い、**着手・完了のたびに状態を更新**する。1 ステップだけのときは省略してよい。
+- 同じ内容を **`docs/tasks.md`** にも反映する。
+  - 新規着手: 「進行中」に移す。
+  - 完了: チェックを付け、「直近の完了」に日付付きで 1 行要約を追記。
+  - セッション終了時: 「次にやる」を次回の着手が分かる粒度に整える。
+
+## 開発日記（`docs/dev-diary.md`）
+
+- **意味のあるまとまり**ごとに**その場で**追記する。
+- **追記位置**は `## 記録一覧` の直後（直近が上）。
+- 初見向けに、**用語・前提・触ったファイルパス**を短く書く。
+
+## ジュニア向けナレッジ（`docs/notes/`）
+
+- **会話・作業の区切りでの自動判断・反映**は [junior-knowledge-from-sessions](./junior-knowledge-from-sessions.mdc) に従う（ジュニアが成長できる知識かどうかを基準に、日記 1 行または `docs/notes/` へ）。
+- **障害・落とし穴・誤解されやすい仕様**が分かったときは、`docs/templates/junior-note.md`（無ければ `~/.cursor/templates/junior-note.md` をコピー）に従い **`docs/notes/` に 1 トピック 1 ファイル**で追加する（軽微は日記 1 行でも可）。
+- 形式は `junior-note-format` ルールに従う（内容 → 解説 → 問題 → 確認テスト 3 問＋解答）。
